@@ -1,0 +1,164 @@
+#navbar {
+  overflow: hidden;
+  background-color: darkgreen;
+  width: 100%;
+}
+#navbar2 {
+  overflow: hidden;
+  background-color: darkgreen;
+  width: 100%;
+}
+#navbar a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+#navbar2 a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+body {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 100%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+main{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main p, h1, h2, h3, h4{
+  text-align: center;
+}
+
+main a{
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}
+
+#formContent{
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  text-align: center;
+  padding-left: 100px;
+}
+#formContent a{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-left: 100px;
+  float: left;
+}
+h1 {
+  font-size: 200%;
+  margin-bottom: .5em;
+}
+h2 {
+  font-size: 200%;
+  margin-bottom: .5em;
+}
+#trade{
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+ul {
+  padding-left: 45px;
+}
+li {
+  padding-bottom: .5em;
+}
+
+a {
+  padding-left: .5em;
+  padding-right: .5em;
+}
+
+#logo{
+  height: 100px;
+  width: 150px;
+}
+.topLeft{
+  float: left;
+}
+.topRight{
+  float: right;
+}
+.topRight a{
+  float: right;
+}
+label{
+  float: left;
+  width: 250px;
+  text-align: left;
+}
+
+#trade{
+  float: left;
+  margin-right: 15px;
+}
+
+#rateIt{
+  background-color: blue;
+  color: white;
+}
+#tradeIt{
+  background-color: green;
+  color: white;
+}
+footer{
+  background-color: darkgreen;
+  position: absolute;
+  height: 50px;
+  bottom: 0;
+  width: 100%;
+  text-decoration: none;
+}
+
+footer a, footer p{
+  color: #f2f2f2;
+  display: inline;
+  text-decoration: none;
+  padding-left: .5em;
+}
+.success {
+  background: rgba(108, 192, 112, 0.7);
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 10px 10px;
+}
+
+.error {
+  background: rgba(255, 102, 51, 0.7);
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 10px 10px;
+}
+table{
+  width: 535px;
+  margin-left: auto;
+  margin-right: auto;
+}
+th, td {
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th, td {
+  padding: 5px;
+  width: auto;
+  text-align: center;
+}

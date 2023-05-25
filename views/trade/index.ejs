@@ -1,0 +1,20 @@
+<%- include('../partials/header.ejs')%>
+        <%if(trades.length) {%>
+            <h4>Monster Cards</h4>
+            <%trades.forEach(trade=>{%>
+                <% if (trade.category == 'Monster') { %>
+                    <a href="/trades/<%= trade.id%>"> <p><%= trade.name%></p></a>
+                <% } %>
+
+            <% }); %>
+
+            <h4>Spell/Trap Cards</h4>
+            <%trades.forEach(trade=>{%>
+                <% if (trade.category == 'Spell/Trap') { %>
+                    <a href="/trades/<%= trade.id%>"> <p><%= trade.name%></p></a>
+                <% } %>
+            <% });
+        } else {%>
+            <p>There are no trades to display.</p>
+   <%    }%>
+<%- include('../partials/footer.ejs')%>

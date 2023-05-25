@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/Trader.css">
+    <title>Niner Yugioh Trade</title>
+</head>
+<body>
+    <div id="navbar">
+        <a href="/" class="topLeft"><img src="/images/logo.PNG" alt="logo" id="logo"></a>
+        <a href="/trades/new" class="topRight">Start Trading!</a>
+        <%if(!user){%>
+            <a href='/users/new' class="topRight">Sign Up</a>
+            <a href='/users/login' class="topRight">Login</a>
+        <%} else {%>
+            <a href='/users/profile' class="topRight">Profile</a>
+            <a href='/users/logout' class="topRight">Logout</a>
+        <%}%>
+    </div>
+    <div id="navbar2">
+        <a href="/trades" class="topLeft">Trades</a>
+    </div>
+
+
+
+    <% if(errorMessages.length > 0) {%>
+        <% errorMessages.forEach(message=>{%>
+            <div class='error'>
+                <%=message%>
+            </div>
+            <%});%>
+                <%}%>
+    
+                    <% if(successMessages.length > 0) {%>
+    
+                        <% successMessages.forEach(message=>{%>
+                            <div class='success'>
+                                <%=message%>
+                            </div>
+                            <%});%>
+                                <%}%>
+<main>
