@@ -1,0 +1,11 @@
+<%- include('../partials/header.ejs')%>
+        <%if(decks.length) {%>
+            <div class="deckIndex">
+            <%decks.slice(0, 10).forEach(deck=>{%>
+                <a href="/decks/<%= deck._id%>">Test Text</a>
+            <% }); %>
+            </div>
+        <%} else {%>
+            <p>There are no decks to display.</p>
+   <%    }%>
+<%- include('../partials/footer.ejs')%>

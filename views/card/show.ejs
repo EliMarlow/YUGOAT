@@ -1,0 +1,11 @@
+<%- include('../partials/header.ejs')%>
+<div class="cardDisplay">
+   <img class="cardLarge" src=<%= card.card_images[0].image_url%>>
+   <div class="cardInfo">
+   <h2><%= card.name%></h2>
+   <h4>[<%= card.race%>/<%= card.frameType%>]</h4>
+   <p><%= card.desc%></p>
+   <p>ATK: <%= card.atk%> DEF: <%= card.def%></p>
+   </div>
+</div>
+<%- include('../partials/footer.ejs')%>

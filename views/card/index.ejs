@@ -1,0 +1,15 @@
+<%- include('../partials/header.ejs')%>
+    <form>
+        <input id="searchbar" type="text" name="searchbar">
+        <button type="submit" formmethod="GET" formaction="/cards/">Submit</button>
+    </form>
+        <%if(cards.length) {%>
+            <div class="cardIndex">
+            <%cards.slice(0, 30).forEach(card=>{%>
+                <a href="/cards/showcard/<%= card._id%>"> <img src=<%= card.card_images[0].image_url_small%>></a>
+            <% }); %>
+            </div>
+        <%} else {%>
+            <p>There are no cards to display.</p>
+   <%    }%>
+<%- include('../partials/footer.ejs')%>

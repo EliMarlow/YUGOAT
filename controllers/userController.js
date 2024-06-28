@@ -1,7 +1,6 @@
 const model = require('../models/user');
-const Trade = require('../models/trade');
-const Watching = require('../models/watching');
-const Offer = require('../models/offer');
+const Card = require('../models/card');
+//const Watching = require('../models/watching');
 
 exports.new = (req, res)=>{
         return res.render('./user/new');
@@ -63,10 +62,10 @@ exports.login = (req, res, next)=>{
 
 exports.profile = (req, res, next)=>{
     let id = req.session.user;
-    Promise.all([model.findById(id), Trade.find({author: id}), Watching.find({author: id}).populate('trade'), Offer.find({initiator: id}).populate('itrade')])
+    Promise.all([model.findById(id)])
     .then(results=>{
-        const [user, trades, watchings, offers] = results;
-        res.render('./user/profile', {user, trades, watchings, offers})
+        const [user] = results;
+        res.render('./user/profile', {user})
     })
     .catch(err=>next(err));
 };
@@ -83,12 +82,12 @@ exports.logout = (req, res, next)=>{
  };
 
 
-exports.trade = (req, res, next)=>{
+/*exports.card = (req, res, next)=>{
     let id = req.session.user;
-    Promise.all([model.findById(id), Trade.find({author: id})])
+    Promise.all([model.findById(id), card.find({author: id})])
     .then(results=>{
-        const [user, trades] = results;
-        res.render('./trade/trade', {user, trades})
+        const [user, cards] = results;
+        res.render('./card/card', {user, cards})
     })
     .catch(err=>next(err));
-}
+}*/

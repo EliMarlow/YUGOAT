@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/Trader.css">
-    <title>Niner Yugioh Trade</title>
+    <link rel="stylesheet" href="/css/trader.css">
+    <title>YGOAT Deck Builder</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
     <div id="navbar">
         <a href="/" class="topLeft"><img src="/images/logo.PNG" alt="logo" id="logo"></a>
-        <a href="/trades/new" class="topRight">Start Trading!</a>
+        <a href="/decks/new" class="topRight">Build a Deck!</a>
         <%if(!user){%>
             <a href='/users/new' class="topRight">Sign Up</a>
             <a href='/users/login' class="topRight">Login</a>
@@ -18,7 +19,8 @@
         <%}%>
     </div>
     <div id="navbar2">
-        <a href="/trades" class="topLeft">Trades</a>
+        <a href="/cards" class="topLeft">Cards</a>
+        <a href="/decks" class="topLeft">Deck List</a>
     </div>
 
 

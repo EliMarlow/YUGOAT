@@ -6,35 +6,40 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
-const tradeRoutes = require('./routes/tradeRoutes');
+const bodyParser = require('body-parser');
+const cardRoutes = require('./routes/cardRoutes');
+const deckRoutes = require('./routes/deckRoutes');
 const userRoutes = require('./routes/userRoutes');
+const uri = 'mongodb+srv://elimarlow16:yugiohdb@cluster0.rgaijkw.mongodb.net/yugiohtrader';
 
 //create app
 const app = express();
-
 //configure app
 let port = 3000;
-let host = 'localhost';
 app.set('view engine', 'ejs');
 
-//connect to database
-mongoose.connect('mongodb://localhost:27017/yugioh', 
-                {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
-.then(()=>{
-    //start app
-    app.listen(port, host, ()=>{
-        console.log('Server is running on port', port);
-    });
-})
-.catch(err=>console.log(err.message));
 
+async function connect() {
+try {
+    await mongoose.connect(uri);
+    console.log("Connected to MongoDB");
+} catch (error) {
+    console.error(error);
+}
+}
+
+connect();
+//http://127.0.0.1:3000/ 
+app.listen(port, () => {
+    console.log("Server started on port " + port);
+})
 //mount middlware
 app.use(
     session({
         secret: "ajfeirf90aeu9eroejfoefj",
         resave: false,
         saveUninitialized: false,
-        store: new MongoStore({mongoUrl: 'mongodb://localhost:27017/demos'}),
+        store: new MongoStore({mongoUrl: uri}),
         cookie: {maxAge: 60*60*1000}
         })
 );
@@ -52,14 +57,21 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 app.use(morgan('tiny'));
 app.use(methodOverride('_method'));
-
+app.use(bodyParser.json());
 //set up routes
 app.get('/', (req, res)=>{
     res.render('index');
 });
 
-app.use('/trades', tradeRoutes);
+app.get('/about', (req, res)=>{
+    res.render('about');
+});
 
+app.get('/contact', (req, res)=>{
+    res.render('contact');
+});
+app.use('/cards', cardRoutes);
+app.use('/decks', deckRoutes);
 app.use('/users', userRoutes);
 
 app.use((req, res, next) => {

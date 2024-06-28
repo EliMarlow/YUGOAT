@@ -26,6 +26,6 @@ router.get('/profile', isLoggedIn, controller.profile);
 //POST /users/logout: logout a user
 router.get('/logout', isLoggedIn, controller.logout);
 
-router.get('/trade/:id', isLoggedIn, controller.trade);
+//router.get('/card/:id', isLoggedIn, controller.card);
 
 module.exports = router;

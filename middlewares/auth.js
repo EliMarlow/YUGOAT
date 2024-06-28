@@ -1,4 +1,4 @@
-const Trade = require('../models/trade');
+const Card = require('../models/card');
 
 //check if user is a guest
 exports.isGuest = (req, res, next)=>{
@@ -20,13 +20,14 @@ exports.isLoggedIn = (req, res, next)=>{
     } 
 };
 
-//check if user is author of a trade
+//check if user is author of a card
+/*
 exports.isAuthor = (req, res, next)=>{
     let id = req.params.id;
-    Trade.findById(id)
-    .then(trade=>{
-        if(trade) {
-            if(trade.author == req.session.user){
+    card.findById(id)
+    .then(card=>{
+        if(card) {
+            if(card.author == req.session.user){
                 return next();
             }else {
                 let err = new Error('Unauthorized to access the resource');
@@ -37,4 +38,4 @@ exports.isAuthor = (req, res, next)=>{
 
     })
     .catch(err=>next(err));
-};
+};*/

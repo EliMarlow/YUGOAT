@@ -1,0 +1,26 @@
+<%- include('../partials/header.ejs')%>
+<h2>Welcome, <%=user.firstName%></h2>
+    <%if(cards.length) {%>
+        <p>Select a card to offer</p>
+        <table>
+            <tr>
+                <th>Card Name</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        <%cards.forEach(card =>{%>
+            
+                <tr>
+                    <td><a href='/cards/<%= card.id%>'><%=card.name%></a></td>
+                    <td><%=card.category%></td>
+                    <td><%=card.status%></td>
+                    <td><form><button type = "submit" formmethod = "POST" formaction = "/cards/<%= card.id%>/offers">card</button></form></td>
+                </tr>
+
+        <%});
+    } else {%>
+        <p>You have not created any cards</p>
+    <%}%>
+</table>
+<%- include('../partials/footer.ejs')%>

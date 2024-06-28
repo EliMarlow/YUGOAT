@@ -1,16 +1,16 @@
 const {body} = require('express-validator');
 const {validationResult} = require('express-validator');
 
-exports.validateId = (req, res, next)=>{
+/*exports.validateId = (req, res, next)=>{
     let id = req.params.id;
     if(id.match(/^[0-9a-fA-F]{24}$/)) {
         next();
     }else {
-        let err = new Error('Invalid trade id');
+        let err = new Error('Invalid card id');
         err.status = 400;
         return next(err);
     }
-};
+};*/
 
 exports.validateSignUp = [body('firstName', 'First name cannot be empty').notEmpty().trim().escape(),
 body('lastName', 'Last name cannot be empty').notEmpty().trim().escape(),
@@ -32,5 +32,5 @@ exports.validateResult = (req, res, next) => {
     }
 }
 
-exports.validateTrade = [body('name', 'Name cannot be emtpy').notEmpty().trim().escape(),
-body('desc', 'description must be at least 10 characters').isLength({min: 10}).trim().escape()];
+//exports.validatecard = [body('name', 'Name cannot be emtpy').notEmpty().trim().escape(),
+//body('desc', 'description must be at least 10 characters').isLength({min: 10}).trim().escape()];

@@ -1,0 +1,31 @@
+<%- include('../partials/header.ejs')%>
+    <script src="/onclick.js"></script>
+    <h2>New deck</h2>
+        <div class="deckBuilder">
+                <div class="selectedCard" id="selectedCard">
+                    <p>Select a card to view.</p>
+                </div>
+                <div class="deckList">
+                <%if(deckList.length) {%>
+                    <%deckList.slice(0, 30).forEach(card=>{%>
+                        <img onclick="CardClicked()"src=<%= card.card_images[0].image_url_small%>>
+                    <% });%>
+                <%}else{%>
+                    <p>There are no cards to display.</p>
+                <%}%>
+                </div>
+                
+                <div class="cardIndexDeckBuilder">
+                
+                <%if(cards.length) {%>
+                    
+                    <%cards.slice(0, 30).forEach(card=>{%>
+                        <form><img data-id=<%=card._id%> onclick="CardClicked(this)"src=<%= card.card_images[0].image_url_small%>></form>
+                    <%});%>
+                
+                <%}else{%>
+                    <p>There are no cards to display.</p>
+                <%}%>
+                </div>      
+        </div>
+<%- include('../partials/footer.ejs')%>
